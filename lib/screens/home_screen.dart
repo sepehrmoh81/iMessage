@@ -10,19 +10,22 @@ class HomeScreen extends StatelessWidget {
       child: CustomScrollView(
         slivers: [
           CupertinoSliverNavigationBar.search(
+            padding: EdgeInsetsDirectional.symmetric(horizontal: 4),
             leading: CupertinoNavigationBarBackButton(onPressed: () {
 
             },previousPageTitle: "Filters",),
             trailing: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                IconButton(
+                CupertinoButton(
                   onPressed: () {},
-                  icon: Icon(CupertinoIcons.ellipsis_circle),
+                  padding: EdgeInsets.symmetric(horizontal: 24),
+                  child: Icon(CupertinoIcons.ellipsis_circle, size: 26,),
                 ),
-                IconButton(
+                CupertinoButton(
                   onPressed: () {},
-                  icon: Icon(CupertinoIcons.square_pencil),
+                  padding: EdgeInsets.zero,
+                  child: Icon(CupertinoIcons.square_pencil, size: 26,),
                 ),
               ],
             ),

@@ -33,18 +33,26 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
             largeTitle: Text("Messages"),
-            searchField: CupertinoSearchTextField(placeholder: "Search"),
+            searchField: CupertinoSearchTextField(placeholder: "Search", suffixIcon: Icon(CupertinoIcons.mic_fill), suffixMode: OverlayVisibilityMode.always,),
           ),
           SliverList.separated(
             itemBuilder: (context, index) {
+              if (index == 0 || index == 14) {
+                return const SizedBox.shrink();
+              }
               return _chatItem(
-                _contacts[index],
+                _contacts[index-1],
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nec augue nunc. Nulla sagittis placerat felis ac venenatis. In lectus mi, sodales vitae tristique a, ultrices nec sem. Integer interdum arcu vitae ex faucibus feugiat.',
               );
             },
-            itemCount: 13,
+            itemCount: 15,
             separatorBuilder: (BuildContext context, int index) {
-              return Divider(indent: 80, thickness: 0.4, radius: BorderRadius.circular(1), color: Colors.grey,);
+              return Divider(
+                indent: 80,
+                thickness: 0.2,
+                radius: BorderRadius.circular(1),
+                color: CupertinoColors.inactiveGray.darkElevatedColor,
+              );
             },
           ),
         ],
@@ -60,18 +68,23 @@ class HomeScreen extends StatelessWidget {
     'Mom',
     'Dad',
     '+98 1009000900700'
-    'danielfarajio1999@gmail.com',
+        'danielfarajio1999@gmail.com',
     '+98 9000 0451',
     '+98 5000 333',
     'HamraheMan',
     'GYROFOOD',
     'DIGIPAY',
-    'JABAMA'
+    'JABAMA',
   ];
 
   Widget _chatItem(String title, String message) {
     return Padding(
-      padding: EdgeInsetsDirectional.only(start: 24, end: 12, top: 4, bottom: 4),
+      padding: EdgeInsetsDirectional.only(
+        start: 24,
+        end: 12,
+        top: 4,
+        bottom: 4,
+      ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -85,17 +98,36 @@ class HomeScreen extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    Expanded(child: Text(title, style: AppleTypography.headline, maxLines: 1, overflow: TextOverflow.ellipsis,)),
-                    SizedBox(width: 8,),
-                    Text('03:03', style: AppleTypography.subhead.copyWith(color: CupertinoColors.inactiveGray),),
-                    SizedBox(width: 8,),
-                    Icon(CupertinoIcons.chevron_forward, color: CupertinoColors.inactiveGray.withValues(alpha: 0.6), size: 15, fontWeight: FontWeight.w900,),
+                    Expanded(
+                      child: Text(
+                        title,
+                        style: AppleTypography.headline,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                    SizedBox(width: 8),
+                    Text(
+                      '03:03',
+                      style: AppleTypography.subhead.copyWith(
+                        color: CupertinoColors.inactiveGray.darkElevatedColor,
+                      ),
+                    ),
+                    SizedBox(width: 8),
+                    Icon(
+                      CupertinoIcons.chevron_forward,
+                      color: CupertinoColors.inactiveGray.darkElevatedColor.withValues(alpha: 0.5),
+                      size: 18,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ],
                 ),
                 SizedBox(height: 4),
                 Text(
                   message,
-                  style: AppleTypography.subhead.copyWith(color: CupertinoColors.inactiveGray),
+                  style: AppleTypography.subhead.copyWith(
+                    color: CupertinoColors.inactiveGray.darkElevatedColor,
+                  ),
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -111,17 +143,17 @@ class HomeScreen extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 8),
       child: Container(
-        padding: EdgeInsets.only(top: 4.5, bottom: 3.5, left: 4, right: 4),
+        padding: EdgeInsets.only(top: 5, bottom: 3, left: 4, right: 4),
         decoration: BoxDecoration(color: Colors.grey, shape: BoxShape.circle),
         child: Container(
-          width: 32,
-          height: 32,
+          width: 36,
+          height: 36,
           clipBehavior: Clip.antiAlias,
           decoration: BoxDecoration(shape: BoxShape.circle),
           child: Icon(
             CupertinoIcons.person_fill,
             color: Colors.white,
-            size: 36,
+            size: 44,
           ),
         ),
       ),

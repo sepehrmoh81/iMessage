@@ -8,5 +8,5 @@ Proper use of Flutter Cupertino widgets to achieve an iMessage lookalike UI for 
 
 ## TODO
 
-- 🔳 Home screen base design
+- ✅ Home screen base design
 - 🔳 Message screen base design

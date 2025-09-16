@@ -34,6 +34,7 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
+  flutter_sficon: ^1.2.1
 
 dev_dependencies:
   flutter_test:
@@ -87,3 +88,24 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+  fonts:
+    - family: SF Pro Display
+      fonts:
+        - asset: fonts/SF-Pro-Display-Regular.otf
+          weight: 400
+        - asset: fonts/SF-Pro-Display-Medium.otf
+          weight: 500
+        - asset: fonts/SF-Pro-Display-Semibold.otf
+          weight: 600
+        - asset: fonts/SF-Pro-Display-Bold.otf
+          weight: 700
+    - family: SF Pro Text
+      fonts:
+        - asset: fonts/SF-Pro-Text-Regular.otf
+          weight: 400
+        - asset: fonts/SF-Pro-Text-Medium.otf
+          weight: 500
+        - asset: fonts/SF-Pro-Text-Semibold.otf
+          weight: 600
+        - asset: fonts/SF-Pro-Text-Bold.otf
+          weight: 700

@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:imessage/screens/home_screen.dart';
 
+import 'apple_typography.dart';
+
 void main() {
   runApp(const MessageApp());
 }
@@ -10,9 +12,24 @@ class MessageApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AppleTypography.init(context);
+
     return CupertinoApp(
       title: 'Flutter Demo',
-      theme: CupertinoThemeData(primaryColor: CupertinoColors.systemBlue, brightness: Brightness.dark),
+      theme: CupertinoThemeData(
+        primaryColor: CupertinoColors.systemBlue,
+        brightness: Brightness.dark,
+        textTheme: CupertinoTextThemeData(
+          textStyle: AppleTypography.instance?.textStyle(),
+          actionTextStyle: AppleTypography.instance?.actionTextStyle(),
+          tabLabelTextStyle: AppleTypography.instance?.tabLabelTextStyle(),
+          navTitleTextStyle: AppleTypography.instance?.navTitleTextStyle(),
+          navLargeTitleTextStyle: AppleTypography.instance?.navLargeTitleTextStyle(),
+          navActionTextStyle: AppleTypography.instance?.navActionTextStyle(),
+          pickerTextStyle: AppleTypography.instance?.pickerTextStyle(),
+          dateTimePickerTextStyle: AppleTypography.instance?.dateTimePickerTextStyle(),
+        ),
+      ),
       debugShowCheckedModeBanner: false,
       home: const HomeScreen(),
     );

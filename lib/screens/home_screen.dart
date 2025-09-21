@@ -48,6 +48,9 @@ class _HomeScreenState extends State<HomeScreen> {
               suffixMode: OverlayVisibilityMode.always,
             ),
           ),
+          SliverToBoxAdapter(
+            child: SizedBox(height: 8,),
+          ),
           Consumer<ChatProvider>(
             builder: (context, provider, child) {
               List<Conversation> conversations = provider.getConversations();
@@ -61,7 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 itemCount: conversations.length + 2,
                 separatorBuilder: (BuildContext context, int index) {
                   return Divider(
-                    indent: 80,
+                    indent: 82,
                     thickness: 0.2,
                     height: 0.4,
                     radius: BorderRadius.circular(1),

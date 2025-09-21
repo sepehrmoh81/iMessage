@@ -1,10 +1,16 @@
 import 'package:flutter/cupertino.dart';
+import 'package:imessage/providers/chat_provider.dart';
+import 'package:imessage/providers/contact_provider.dart';
 import 'package:imessage/screens/home_screen.dart';
+import 'package:provider/provider.dart';
 
 import 'apple_typography.dart';
 
 void main() {
-  runApp(const MessageApp());
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider(create: (_) => ChatProvider()),
+    ChangeNotifierProvider(create: (_) => ContactProvider()),
+  ], child: const MessageApp()));
 }
 
 class MessageApp extends StatelessWidget {
@@ -13,7 +19,6 @@ class MessageApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     AppleTypography.init(context);
-
     return CupertinoApp(
       title: 'Flutter Demo',
       theme: CupertinoThemeData(
@@ -24,10 +29,12 @@ class MessageApp extends StatelessWidget {
           actionTextStyle: AppleTypography.instance?.actionTextStyle(),
           tabLabelTextStyle: AppleTypography.instance?.tabLabelTextStyle(),
           navTitleTextStyle: AppleTypography.instance?.navTitleTextStyle(),
-          navLargeTitleTextStyle: AppleTypography.instance?.navLargeTitleTextStyle(),
+          navLargeTitleTextStyle: AppleTypography.instance
+              ?.navLargeTitleTextStyle(),
           navActionTextStyle: AppleTypography.instance?.navActionTextStyle(),
           pickerTextStyle: AppleTypography.instance?.pickerTextStyle(),
-          dateTimePickerTextStyle: AppleTypography.instance?.dateTimePickerTextStyle(),
+          dateTimePickerTextStyle: AppleTypography.instance
+              ?.dateTimePickerTextStyle(),
         ),
       ),
       debugShowCheckedModeBanner: false,
